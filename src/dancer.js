@@ -1,7 +1,8 @@
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
-  this.$node = $('<div><img src="img/hrhq.png" style="height: 60px; width: 60px;"></div>');
+  // this.$node = $('<div class="mouseStuff"><img src="img/hrhq.png" style="height: 60px; width: 60px;"></div>');
+  this.$node = $('<div><img src="img/hrhq.png" style="height: 30px; width: 30px;"></div>');
 
   this.step();
   this.setPosition(top, left);

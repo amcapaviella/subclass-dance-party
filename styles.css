@@ -1,8 +1,9 @@
 body, html{
-  height:100%;
+  height: 100%;
   background-image: url('img/vscode.png');
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 body{
   margin: 0px;
@@ -28,16 +29,23 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 
-.is-dancer {
-  color: transparent;
-}
-
 .blinky-dancer {
-  /* border:10px solid red; */
+  /* border:10px solid red;
   /* background: url('img/hrlogo.png') !important;
   background-size: cover; */
-  /* border-radius:10px; */
-  position:absolute;
+  /* border-radius:10px;
+  position:absolute; */
+  position:relative;
+  /* background: blue; */
+  /* top:40px;
+  left:40px; */
+  /* display:inline-block; */
+  /* border-radius: 50%; */
+  width: 30px;
+  height:30px;
+  /* color: white; */
+  /* text-align:center; */
+  /* line-height:20px; */
 }
 
 .square-dancer {
@@ -51,6 +59,31 @@ body, a:link, a:visited, a:active{
   border-radius: 5px;
 }
 
-.allTheWayLeft {
-  left: 0 !important;
+/* .test-change {
+  border: 10px solid yellow;
+  position: absolute;
+} */
+
+.blinked-dancer {
+  /* background: blue; */
+  /* border-radius: 10px; */
+  height: 30px;
+  width: 30px;
+}
+
+.motion-demo {
+  offset-path: path('M20,20 C20,100 200,0 200,100');
+  animation: move 3000ms infinite alternate ease-in-out;
+  /* width: 40px;
+  height: 40px; */
+  /* background: cyan; */
+}
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
 }

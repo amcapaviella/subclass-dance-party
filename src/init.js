@@ -16,40 +16,87 @@ $(document).ready(function () {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-    console.log('makeDancer', dancerMakerFunctionName);
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
 
     // make a dancer with a random position
-    for (var j = 0; j < 1000; j++) {
-      var dancer = new dancerMakerFunction(
-        $('body').height() * Math.random(),
-        $('body').width() * Math.random(),
-        Math.random() * 10000
-      );
-      $('body').append(dancer.$node);
-      window.dancers.push(dancer);
-    }
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random() - 350,
+      $('body').width() * Math.random() - 50,
+      Math.random() * 1000000
+    );
+    $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
   $('.lineUpButton').on('click', function (event) {
     for (var i = 0; i < window.dancers.length; i++) {
       var dan = window.dancers[i];
-      // dan.$node.animate({left: '0px'}, 'slow');
-      dan.$node.addClass('is-dancer');
-      var max = 2000;
-      var min = 1;
-      $('.is-dancer').animate({
-        path: new $.path.arc({
-          center: [Math.random() * (max - min) + min, Math.random() * (max - min) + min],
-          radius: Math.random() * (200 - 50) + 50,
-          start: Math.random() * (max - min) + min,
-          end: -360 * 40,
-          dir: Math.random() < 0.5 ? -1 : 1
-        })
-      }, 40000);
+      dan.$node.removeClass('blinky-dancer').addClass('blinked-dancer').animate({ left: '0px'}, 'slow');
     }
   });
+  $(document).on('click', '.square-dancer', function() {
+    // for (var x = 0; x < window.dancers.length; x++) {
+    //   var danz = window.dancers[x];
+    //   console.log('stuff', danz.$node.css('top'));
+    // }
+    console.log('Bradley sucks Azz', $(this).css('top'));
+  });
+  $(document).on('mouseover', '.blinky-dancer', function () {
+    $('.blinky-dancer').each(function (index, el) {
+      $(el).data('homex', parseInt($(el).position().left));
+      $(el).data('homey', parseInt($(el).position().top));
+    });
+
+    $('.blinky-dancer').css('position', 'absolute');
+    setInterval(function () {
+      $('.blinky-dancer').each(function (index, el) {
+        el = $(el);
+        position = el.position();
+        x0 = el.offset().left;
+        y0 = el.offset().top;
+        x1 = mouse.x;
+        y1 = mouse.y;
+        distancex = x1 - x0;
+        distancey = y1 - y0;
+
+        distance = Math.sqrt((distancex * distancex) + (distancey * distancey));
+
+
+        // magnet = 2600 - distance*20;
+        // if(distance>130) {
+        //    magnet=0;
+        // }
+
+
+        powerx = x0 - (distancex / distance) * magnet / distance;
+        powery = y0 - (distancey / distance) * magnet / distance;
+
+        forcex = (forcex + (el.data('homex') - x0) / 2) / 2.1;
+        forcey = (forcey + (el.data('homey') - y0) / 2) / 2.1;
+
+
+        el.css('left', powerx + forcex);
+        el.css('top', powery + forcey);
+        // el.text(parseInt(distance));
+      });
+    }, 15);
+
+    var mouse = { 'x': 0, 'y': 0 };
+
+    homex = 0;
+    homey = 0;
+    forcex = 0;
+    forcey = 0;
+    magnet = 500;
+
+
+    $(document).on('mousemove', function (e) {
+      mouse = { 'x': e.pageX, 'y': e.pageY };
+    });
+  });
+
+
 });
 
