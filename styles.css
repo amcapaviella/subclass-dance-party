@@ -35,7 +35,7 @@ body, a:link, a:visited, a:active{
 .blinky-dancer {
   /* border:10px solid red; */
   /* background: url('img/hrlogo.png') !important;
-  background-size: cover;
+  background-size: cover; */
   /* border-radius:10px; */
   position:absolute;
 }

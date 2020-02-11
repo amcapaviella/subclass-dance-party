@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 
     // make a dancer with a random position
-    for (var j = 0; j < 500; j++) {
+    for (var j = 0; j < 1000; j++) {
       var dancer = new dancerMakerFunction(
         $('body').height() * Math.random(),
         $('body').width() * Math.random(),
