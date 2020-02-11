@@ -1,5 +1,8 @@
 body, html{
   height:100%;
+  background-image: url('img/vscode.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 body{
   margin: 0px;
@@ -13,6 +16,10 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.title, .lineUpButton{
+  padding:5px 12px;
+  float:right;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -20,8 +27,24 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+
+.blinky-dancer {
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.square-dancer {
+  border: 10px solid blue;
+  position: absolute;
+}
+
+.int-dancer {
+  border: 10px solid green;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.allTheWayLeft {
+  left: 0 !important;
 }
