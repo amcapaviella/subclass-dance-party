@@ -28,9 +28,15 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 
+.is-dancer {
+  color: transparent;
+}
+
 .blinky-dancer {
-  border:10px solid red;
-  border-radius:10px;
+  /* border:10px solid red; */
+  /* background: url('img/hrlogo.png') !important;
+  background-size: cover;
+  /* border-radius:10px; */
   position:absolute;
 }
 

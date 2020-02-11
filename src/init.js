@@ -22,20 +22,33 @@ $(document).ready(function () {
 
 
     // make a dancer with a random position
-
-    var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 10000
-    );
-    $('body').append(dancer.$node);
-    window.dancers.push(dancer);
+    for (var j = 0; j < 500; j++) {
+      var dancer = new dancerMakerFunction(
+        $('body').height() * Math.random(),
+        $('body').width() * Math.random(),
+        Math.random() * 10000
+      );
+      $('body').append(dancer.$node);
+      window.dancers.push(dancer);
+    }
   });
 
   $('.lineUpButton').on('click', function (event) {
     for (var i = 0; i < window.dancers.length; i++) {
       var dan = window.dancers[i];
-      dan.$node.animate({left: '0px'}, 'slow');
+      // dan.$node.animate({left: '0px'}, 'slow');
+      dan.$node.addClass('is-dancer');
+      var max = 2000;
+      var min = 1;
+      $('.is-dancer').animate({
+        path: new $.path.arc({
+          center: [Math.random() * (max - min) + min, Math.random() * (max - min) + min],
+          radius: Math.random() * (200 - 50) + 50,
+          start: Math.random() * (max - min) + min,
+          end: -360 * 40,
+          dir: Math.random() < 0.5 ? -1 : 1
+        })
+      }, 40000);
     }
   });
 });
