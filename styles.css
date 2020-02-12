@@ -1,13 +1,13 @@
 body, html{
   height: 100%;
-  background-image: url('img/vscode.png');
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
 }
 body{
+  height: 100%;
   margin: 0px;
-  background-color:#444;
+  background-color:#ffffff;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -30,60 +30,52 @@ body, a:link, a:visited, a:active{
 }
 
 .blinky-dancer {
-  /* border:10px solid red;
-  /* background: url('img/hrlogo.png') !important;
-  background-size: cover; */
-  /* border-radius:10px;
-  position:absolute; */
   position:relative;
-  /* background: blue; */
-  /* top:40px;
-  left:40px; */
-  /* display:inline-block; */
-  /* border-radius: 50%; */
-  width: 30px;
-  height:30px;
-  /* color: white; */
-  /* text-align:center; */
-  /* line-height:20px; */
+  background-image: url('img/hrhq.png');
+  background-position: center;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
 
 .square-dancer {
-  border: 10px solid blue;
   position: absolute;
+  background-image: url('img/mracus.jpeg');
+  background-position: center;
+  background-size: cover;
+  width: 90px;
+  height: 90px;
 }
 
 .int-dancer {
-  border: 10px solid green;
   position: absolute;
-  border-radius: 5px;
+  background-image: url('img/blammo.png');
+  background-position: center;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
 
-/* .test-change {
-  border: 10px solid yellow;
-  position: absolute;
-} */
-
 .blinked-dancer {
-  /* background: blue; */
-  /* border-radius: 10px; */
   height: 30px;
   width: 30px;
 }
 
-.motion-demo {
-  offset-path: path('M20,20 C20,100 200,0 200,100');
-  animation: move 3000ms infinite alternate ease-in-out;
-  /* width: 40px;
-  height: 40px; */
-  /* background: cyan; */
-}
+/* .motion-demo {
+  animation: move 5s infinite alternate ease-in-out;
+  width: 40px;
+  height: 40px;
+  background: cyan;
+} */
 
-@keyframes move {
-  0% {
-    offset-distance: 0%;
+/* @keyframes move {
+   from {
+    margin-left: 100%;
+    width: 300%;
   }
-  100% {
-    offset-distance: 100%;
-  }
-}
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  } */
+/* } */

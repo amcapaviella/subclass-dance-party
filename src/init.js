@@ -22,8 +22,10 @@ $(document).ready(function () {
 
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random() - 350,
-      $('body').width() * Math.random() - 50,
+      // $('body').height() * Math.random() - 500,
+      Math.random() * (1000 - 1) + 1,
+      // $('body').width() * Math.random() - 50,
+      Math.random() * (1200 - 1) + 1,
       Math.random() * 1000000
     );
     $('body').append(dancer.$node);
@@ -33,15 +35,24 @@ $(document).ready(function () {
   $('.lineUpButton').on('click', function (event) {
     for (var i = 0; i < window.dancers.length; i++) {
       var dan = window.dancers[i];
-      dan.$node.removeClass('blinky-dancer').addClass('blinked-dancer').animate({ left: '0px'}, 'slow');
+      dan.$node.removeClass('blinky-dancer motion-demo').addClass('blinked-dancer').animate({ left: '0px'}, 'slow');
     }
   });
   $(document).on('click', '.square-dancer', function() {
-    // for (var x = 0; x < window.dancers.length; x++) {
-    //   var danz = window.dancers[x];
-    //   console.log('stuff', danz.$node.css('top'));
-    // }
-    console.log('Bradley sucks Azz', $(this).css('top'));
+    var y = $(this).css('top');
+    var x = $(this).css('left');
+    for (var a = 0; a < window.dancers.length; a++) {
+      var b = window.dancers[a];
+      b.$node.animate({left: x, top: y}, 'slow');
+    }
+  });
+  $(document).on('click', '.square-dancer', function() {
+    var y = Math.random() * (600 - 400) + 400;
+    var x = Math.random() * (800 - 200) + 200;
+    for (var a = 0; a < window.dancers.length; a++) {
+      var b = window.dancers[a];
+      b.$node.animate({left: x, top: y}, 'slow');
+    }
   });
   $(document).on('mouseover', '.blinky-dancer', function () {
     $('.blinky-dancer').each(function (index, el) {
@@ -89,14 +100,13 @@ $(document).ready(function () {
     homey = 0;
     forcex = 0;
     forcey = 0;
-    magnet = 500;
+    magnet = 750;
 
 
     $(document).on('mousemove', function (e) {
       mouse = { 'x': e.pageX, 'y': e.pageY };
     });
   });
-
 
 });
 
